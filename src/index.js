@@ -1,17 +1,48 @@
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import { HashRouter } from 'react-router-dom'
+// import App from './app';
+// import api from './api';
+// import './style/index.less';
+
+// const url = window.location.href.replace(/^.*\/\/[^\/]+/, '').split('/');
+// const rootPath = url.slice(0, url.indexOf('admin')).join('/');
+// api.init('rest', rootPath + '/admin/api');
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const root = ReactDOM.createRoot(document.getElementById('root'));
+//   root.render(
+//     <React.StrictMode>
+//       <HashRouter>
+//         <App />
+//       </HashRouter>
+//     </React.StrictMode>
+//   );
+// });
+
+import mock from './mock/mock-api';
+import posts from './mock/posts';
+import tagsAndCategories from './mock/tags-and-categories';
+import settings from './mock/settings';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { HashRouter } from 'react-router-dom'
+import App from './app';
+import api from './api';
+import './style/index.less';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+api.init(mock, {
+  posts,
+  tagsAndCategories,
+  settings
+})
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+document.addEventListener('DOMContentLoaded', () => {
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+    <HashRouter>
+      <App />
+    </HashRouter>
+  );
+});
