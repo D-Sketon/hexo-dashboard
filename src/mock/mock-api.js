@@ -1,6 +1,6 @@
 import moment from 'moment';
 import render from './render';
-import deepAssign from 'deep-assign';
+import { merge } from 'lodash-es';
 
 function newId() {
   let id = '';
@@ -75,7 +75,7 @@ export default function createAPI(config) {
         config.settings.options = {};
       }
       config.settings.options[name] = value;
-      config.settings = deepAssign(config.settings, addedOptions);
+      config.settings = merge(config.settings, addedOptions);
       return Promise.resolve({
         updated: `Successfully updated ${name} = ${value}`,
         settings: config.settings,

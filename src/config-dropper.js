@@ -95,7 +95,7 @@ function ConfigDropper({ post, tagsCategoriesAndMetadata, onChange }) {
   };
 
   const save = () => {
-    const newDate = moment(state.date);
+    let newDate = moment(state.date);
     if (!newDate.isValid()) {
       newDate = moment(post.date);
     }
@@ -120,7 +120,7 @@ function ConfigDropper({ post, tagsCategoriesAndMetadata, onChange }) {
       author: state.author,
     };
     for (let i = 0; i < tagsCategoriesAndMetadata.metadata.length; i++) {
-      newState[tagsCategoriesAndMetadata.metadata[i]] = newState[tagsCategoriesAndMetadata.metadata[i]]
+      newState[tagsCategoriesAndMetadata.metadata[i]] = state[tagsCategoriesAndMetadata.metadata[i]]
     }
     onChange(newState);
   };

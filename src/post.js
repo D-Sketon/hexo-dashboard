@@ -76,10 +76,12 @@ function Post() {
   const updatePost = useCallback(debounce((update) => {
     const now = moment();
     api.post(params.postId, update).then(() => {
-      setData({
-        ...data,
-        updated: now,
-      });
+      setData((data) => (
+        {
+          ...data,
+          updated: now,
+        }
+      ));
     });
   }, 1000, { trailing: true, loading: true }), []);
 

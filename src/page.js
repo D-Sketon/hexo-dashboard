@@ -35,10 +35,12 @@ function Page() {
   const updatePage = useCallback(debounce((update) => {
     const now = moment();
     api.page(params.pageId, update).then(() => {
-      setData({
-        ...data,
-        updated: now,
-      });
+      setData((data) => (
+        {
+          ...data,
+          updated: now,
+        }
+      ));
     });
   }, 1000, { trailing: true, loading: true }), []);
 

@@ -3,7 +3,7 @@ import request from 'superagent';
 
 function _post(baseUrl, url, data) {
   return new Promise((f, r) => {
-    const req = request.post(baseUrl + url)
+    let req = request.post(baseUrl + url)
     if (data) {
       req = req.send(data)
     }
@@ -16,7 +16,7 @@ function _post(baseUrl, url, data) {
 
 function _get(baseUrl, url, params) {
   return new Promise((f, r) => {
-    const req = request.get(baseUrl + url)
+    let req = request.get(baseUrl + url)
     if (params) {
       req = req.query(params)
     }
