@@ -182,6 +182,7 @@ function Post() {
       isPage={false}
       post={data.post}
       raw={data.initialRaw}
+      updatedRaw={data.raw}
       wordCount={data.raw ? data.raw.split(' ').length : 0}
       isDraft={data.post.isDraft}
       updated={data.updated}
