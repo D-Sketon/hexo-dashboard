@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import api from './api';
+import api from '../../api';
 
-function NewPost({ onNew }) {
+function NewPage({ onNew }) {  
   const [showing, setShowing] = useState(false);
   const [loading, setLoading] = useState(true);
   const [text, setText] = useState('Untitled');
@@ -61,7 +61,7 @@ function NewPost({ onNew }) {
     return (
       <div className="new-post" onClick={onShow}>
         <div className="new-post_button">
-          <i className="fa fa-plus" /> New Post
+          <i className="fa fa-plus" /> New Page
         </div>
       </div>
     );
@@ -87,6 +87,7 @@ function NewPost({ onNew }) {
       ></i>
     </div>
   );
+
 }
 
-export default NewPost;
+export default NewPage;

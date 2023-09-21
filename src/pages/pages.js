@@ -2,79 +2,79 @@ import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import moment from 'moment';
 import { Link, useNavigate } from 'react-router-dom';
-import NewPost from './new-post';
-import Rendered from './components/rendered';
+import NewPage from '../components/new-page';
+import Rendered from '../components/rendered';
 import path from 'path-browserify';
-import api from './api';
+import api from '../api';
 
-function Posts() {
+function Pages() {
   const [data, setData] = useState({
-    posts: [],
+    pages: [],
     selected: 0
   });
   const history = useNavigate();
 
   useEffect(() => {
-    api.posts().then((posts) => {
-      const postsAfterProcess = posts.filter((post) => !post.isDiscarded).sort((a, b) => {
+    api.pages().then((pages) => {
+      const pagesAfterProcess = pages.sort((a, b) => {
         if (a.isDraft !== b.isDraft) return a.isDraft - b.isDraft
         return a.date - b.date
       }).reverse();
       setData({
         ...data,
-        posts: postsAfterProcess
+        pages: pagesAfterProcess
       })
     });
   }, []);
 
-  const onNewPost = (post) => {
+  const onNewPage = (page) => {
     setData((prevData) => ({
       ...prevData,
-      posts: [post, ...prevData.posts],
+      pages: [page, ...prevData.pages],
     }));
-    history(`/post/${post._id}`);
+    history(`/page/${page._id}`);
   };
 
   const goTo = (id, e) => {
     if (e) {
       e.preventDefault();
     }
-    history(`/post/${id}`);
+    history(`/page/${id}`);
   };
 
-  const current = data.posts[data.selected] || {}
+  const current = data.pages[data.selected] || {}
   const url = window.location.href.replace(/^.*\/\/[^\/]+/, '').split('/')
   const rootPath = url.slice(0, url.indexOf('admin')).join('/')
 
   return (
     <>
       {
-        data.posts ? <div className="posts">
+        data.pages ? <div className="posts">
           <ul className='posts_list'>
-            <NewPost onNew={onNewPost} />
+            <NewPage onNew={onNewPage} />
             {
-              data.posts.map((post, i) =>
-                <li key={post._id} className={cx({
+              data.pages.map((page, i) =>
+                <li key={page._id} className={cx({
                   "posts_post": true,
-                  "posts_post--draft": post.isDraft,
+                  "posts_post--draft": page.isDraft,
                   "posts_post--selected": i === data.selected
                 })}
-                  onDoubleClick={() => goTo(post._id)}
+                  onDoubleClick={goTo(page._id)}
                   onClick={() => setData({
                     ...data,
                     selected: i,
                   })}
                 >
                   <span className="posts_post-title">
-                    {post.title}
+                    {page.title}
                   </span>
                   <span className="posts_post-date">
-                    {moment(post.date).format('MMM Do YYYY')}
+                    {moment(page.date).format('MMM Do YYYY')}
                   </span>
-                  <a className='posts_perma-link' target="_blank" href={path.join(rootPath, '/', post.path)}>
+                  <a className='posts_perma-link' target="_blank" href={path.join(rootPath, '/', page.path)}>
                     <i className='fa fa-link' />
                   </a>
-                  <Link className='posts_edit-link' to={`/post/${post._id}`}>
+                  <Link className='posts_edit-link' to="page" pageId={page._id}>
                     <i className='fa fa-pencil' />
                   </Link>
                 </li>
@@ -96,4 +96,4 @@ function Posts() {
   )
 }
 
-export default Posts;
+export default Pages;

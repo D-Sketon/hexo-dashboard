@@ -1,8 +1,11 @@
 import { Link, Routes, Route, Navigate } from 'react-router-dom';
-import Post from './post';
-import Posts from './posts';
-import Page from './page';
-import Pages from './pages';
+import Post from './pages/post';
+import Posts from './pages/posts';
+import Page from './pages/page';
+import Pages from './pages/pages';
+import About from './pages/about';
+import Deploy from './pages/deploy';
+import Settings from './pages/settings';
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
           <Route exact element={<Post />} path="/post/:postId" />
           <Route exact element={<Page />} path="/page/:pageId" />
           <Route exact element={<Pages />} path="/pages" />
+          <Route exact element={<About />} path="/about" />
+          <Route exact element={<Deploy />} path="/deploy" />
+          <Route exact element={<Settings />} path="/settings" />
           <Route exact element={<Navigate to="/posts" />} path="/" />
         </Routes>
       </div>
