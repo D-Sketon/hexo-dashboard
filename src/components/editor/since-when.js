@@ -13,7 +13,7 @@ function SinceWhen({ time, prefix = '' }) {
     };
   }, []);
 
-  return <span>{prefix + currentTime}</span>;
+  return <span className="editor_updated">{prefix + currentTime}</span>;
 }
 
 export default SinceWhen;

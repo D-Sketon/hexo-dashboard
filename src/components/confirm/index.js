@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import Modal from './modal';
+import Modal from '../modal';
 
 function Confirm({
   message,

@@ -3,7 +3,7 @@ import path from 'path-browserify';
 import cx from 'classnames';
 import CodeMirror from './code-mirror';
 import SinceWhen from './since-when';
-import Rendered from './rendered';
+import Rendered from '../rendered';
 import CheckGrammar from './check-grammar';
 import ConfigDropper from './config-dropper';
 import RenameFile from './rename-file';
@@ -32,7 +32,7 @@ function Editor({
   const [previewLink, setPreviewLink] = useState(path.join(rootPath, post.path));
   const [checkingGrammar, setCheckingGrammar] = useState(false);
   const renderedRef = useRef(null);
-  
+
   const handlePreviewLink = (previewLink) => {
     console.log('updating preview link');
     setPreviewLink(path.join(previewLink));
@@ -112,7 +112,6 @@ function Editor({
           <div className="editor_md-header">
             {updated && (
               <SinceWhen
-                className="editor_updated"
                 prefix="saved "
                 time={updated}
               />
@@ -144,7 +143,6 @@ function Editor({
           {!checkingGrammar && (
             <Rendered
               ref={renderedRef}
-              className="editor_rendered"
               text={rendered}
             />
           )}

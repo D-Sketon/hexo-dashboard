@@ -9,7 +9,7 @@ function App() {
     <div className="app">
       <div className="app_header">
         <img src="logo.png" className="app_logo" />
-        <span className="app_title">Hexo</span>
+        <span className="app_title">Hexo dashboard</span>
         <ul className="app_nav">
           <li><Link to="posts">Posts</Link></li>
           <li><Link to="pages">Pages</Link></li>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import api from './api';
+import api from '../../api';
 import 'codemirror/mode/markdown/markdown';
 const CM = require('codemirror/lib/codemirror');
 

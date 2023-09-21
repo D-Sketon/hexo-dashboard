@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import path from 'path-browserify';
-import api from './api';
+import api from '../../api';
 
 function RenameFile({ post, handlePreviewLink }) {
   const [filename, setFilename] = useState('');

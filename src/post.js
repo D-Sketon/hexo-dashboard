@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import api from './api';
-import Editor from './editor';
+import Editor from './components/editor';
 import { debounce } from 'lodash-es';
 import moment from 'moment';
 import { useNavigate, useParams } from 'react-router-dom';
-import Confirm from './confirm';
+import Confirm from './components/confirm';
 import { marked } from 'marked';
 
 const confirm = (message, options = {}) => {

@@ -3,7 +3,7 @@ import cx from 'classnames';
 import moment from 'moment';
 import { Link, useNavigate } from 'react-router-dom';
 import NewPost from './new-post';
-import Rendered from './rendered';
+import Rendered from './components/rendered';
 import path from 'path-browserify';
 import api from './api';
 

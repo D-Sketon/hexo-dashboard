@@ -155,9 +155,14 @@
   font-size: 18px;
   min-height: 0;
   width: 50vw;
+  position: relative;
 }
 
 .h-head {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: @accent2transparent;
   z-index: 10;
   padding: 0 25px;
@@ -184,6 +189,7 @@
   border-left: 5px solid @edit-back;
   font-size: 18px;
   width: 50vw;
+  position: relative;
 }
 
 .editor_rendered {
@@ -196,7 +202,7 @@
 }
 
 .CodeMirror-lines {
-  padding: 36px 0 40px 0;
+  padding: 36px 0 40px 0 !important;
 }
 
 

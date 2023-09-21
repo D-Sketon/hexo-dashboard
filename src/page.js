@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import api from './api';
-import Editor from './editor';
+import Editor from './components/editor';
 import { debounce } from 'lodash-es';
 import moment from 'moment';
 import { marked } from 'marked';
