@@ -1,0 +1,46 @@
+{
+  "name": "hexo-dashboard-frontend",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "eject": "react-app-rewired eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "bcryptjs": "^2.4.3",
+    "classnames": "^2.3.2",
+    "codemirror": "^5.65.15",
+    "customize-cra": "^1.0.0",
+    "less": "^4.2.0",
+    "less-loader": "^7.3.0",
+    "lodash-es": "^4.17.21",
+    "marked": "^9.0.2",
+    "moment": "^2.29.4",
+    "path-browserify": "^1.0.1",
+    "react": "^18.2.0",
+    "react-app-rewired": "^2.2.1",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0",
+    "react-scripts": "^5.0.1",
+    "superagent": "^8.1.2",
+    "write-good": "^1.0.8"
+  }
+}

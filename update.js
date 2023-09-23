@@ -1,8 +1,9 @@
 import path from 'path';
 import moment from 'moment';
-import hfm from 'hexo-front-matter';
-import fs from 'hexo-fs';
 import { extend } from 'lodash-es';
+
+const hfm = require('hexo-front-matter');
+const fs = require('hexo-fs');
 
 export default function updateAny(model, id, update, callback, hexo) {
   function removeExtname(str) {
