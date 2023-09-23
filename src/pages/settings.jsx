@@ -50,7 +50,7 @@ function Settings() {
       </p>
       <p>
         Hexo dashboard can be secured with a password.
-        {' '}<Link to='auth-setup'>Setup authentication here.</Link>
+        {' '}<Link to='/auth-setup'>Setup authentication here.</Link>
       </p>
       <hr />
 

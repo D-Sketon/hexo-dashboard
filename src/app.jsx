@@ -6,6 +6,7 @@ import Pages from './pages/pages';
 import About from './pages/about';
 import Deploy from './pages/deploy';
 import Settings from './pages/settings';
+import AuthSetup from './pages/auth-setup';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route exact element={<About />} path="/about" />
           <Route exact element={<Deploy />} path="/deploy" />
           <Route exact element={<Settings />} path="/settings" />
+          <Route exact element={<AuthSetup />} path="/auth-setup" />
           <Route exact element={<Navigate to="/posts" />} path="/" />
         </Routes>
       </div>
