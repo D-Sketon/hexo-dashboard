@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import api from '../api';
+import api from '../../api';
 
 function SettingsCheckbox(props) {
   const [checked, setChecked] = useState(false);
