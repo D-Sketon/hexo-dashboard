@@ -1,6 +1,7 @@
 import serveStatic from 'serve-static';
 import bodyParser from 'body-parser';
 import path from 'path';
+import setupAuthentication from './auth';
 import api from './api';
 
 let passwordProtected = hexo.config.admin && hexo.config.admin.username;
@@ -22,7 +23,7 @@ if (passwordProtected) {
 
 hexo.extend.filter.register('server_middleware', (app) => {
   if (passwordProtected) {
-    require('./auth')(app, hexo); // setup authentication, login page, etc.
+    setupAuthentication(app, hexo); // setup authentication, login page, etc.
   }
 
   // Main routes

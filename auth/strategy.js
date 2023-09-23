@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 
-export class adminAuth {
+export default class authStrategy {
   constructor(hexo) {
     this.name = 'adminAuth';
 

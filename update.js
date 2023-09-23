@@ -1,6 +1,6 @@
 import path from 'path';
 import moment from 'moment';
-import { extend } from 'lodash-es';
+import { merge } from 'lodash-es';
 
 const hfm = require('hexo-front-matter');
 const fs = require('hexo-fs');
@@ -61,7 +61,7 @@ export default function updateAny(model, id, update, callback, hexo) {
     delete update.categories;
   }
 
-  post = extend(post, update);
+  post = merge(post, update);
 
   post.save(() => {
     fs.writeFile(fullSource, raw, (err) => {

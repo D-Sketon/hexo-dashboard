@@ -1,6 +1,6 @@
 import path from 'path';
 import yml from 'js-yaml';
-import { extend } from 'lodash-es';
+import { merge } from 'lodash-es';
 import updateAny from './update';
 import deploy from './deploy';
 
@@ -172,7 +172,7 @@ export default function api(app, hexo) {
 
     const addedOptions = addedOptsExist ? req.body.addedOptions : 'no additional options';
     if (addedOptsExist) {
-      settings = extend(settings, addedOptions);
+      settings = merge(settings, addedOptions);
     }
     hexo.log.d('set', name, '=', value, 'with', JSON.stringify(addedOptions));
 
@@ -264,7 +264,7 @@ export default function api(app, hexo) {
     }
 
     let postParameters = { title: req.body.title, layout: 'draft', date: new Date(), author: hexo.config.author };
-    postParameters = extend(postParameters, hexo.config.metadata || {});
+    postParameters = merge(postParameters, hexo.config.metadata || {});
     hexo.post.create(postParameters)
       .error((err) => {
         console.error(err, err.stack);
