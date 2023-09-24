@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="app">
       <ResponsiveAppBar />
-      <div className="app_main">
+      <main className="app_main">
         <Routes>
           <Route exact element={<Posts />} path="/posts" />
           <Route exact element={<Post />} path="/post/:postId" />
@@ -25,7 +25,7 @@ function App() {
           <Route exact element={<AuthSetup />} path="/auth-setup" />
           <Route exact element={<Navigate to="/posts" />} path="/" />
         </Routes>
-      </div>
+      </main>
     </div>
   );
 }
