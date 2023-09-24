@@ -1,6 +1,6 @@
 import path from 'path';
 import moment from 'moment';
-const merge = require('lodash/fp/merge');
+const extend = require('lodash/fp/extend');
 const hfm = require('hexo-front-matter');
 const fs = require('hexo-fs');
 
@@ -9,7 +9,7 @@ export default function updateAny(model, id, update, callback, hexo) {
     return str.substring(0, str.length - path.extname(str).length);
   }
 
-  let post = hexo.model(model).get(id);
+  const post = hexo.model(model).get(id);
 
   if (!post) {
     return callback('Post not found');
@@ -60,7 +60,7 @@ export default function updateAny(model, id, update, callback, hexo) {
     delete update.categories;
   }
 
-  post = merge(post, update);
+  extend(post, update);
 
   post.save(() => {
     fs.writeFile(fullSource, raw, (err) => {

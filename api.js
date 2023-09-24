@@ -3,6 +3,7 @@ import yml from 'js-yaml';
 import updateAny from './update';
 import deploy from './deploy';
 const merge = require('lodash/fp/merge');
+const extend = require('lodash/fp/extend');
 
 const updatePage = updateAny.bind(null, 'Page');
 const update = updateAny.bind(null, 'Post');
@@ -40,7 +41,7 @@ export default function api(app, hexo) {
       fs.writeFile(filePath, '');
       return {};
     } else {
-      const settings = yml.safeLoad(fs.readFileSync(filePath));
+      const settings = yml.load(fs.readFileSync(filePath));
       if (!settings) return {};
       return settings;
     }
@@ -172,7 +173,7 @@ export default function api(app, hexo) {
 
     const addedOptions = addedOptsExist ? req.body.addedOptions : 'no additional options';
     if (addedOptsExist) {
-      settings = merge(settings, addedOptions);
+      merge(settings, addedOptions);
     }
     hexo.log.d('set', name, '=', value, 'with', JSON.stringify(addedOptions));
 
@@ -263,8 +264,8 @@ export default function api(app, hexo) {
       return res.send(400, 'No title given');
     }
 
-    let postParameters = { title: req.body.title, layout: 'draft', date: new Date(), author: hexo.config.author };
-    postParameters = merge(postParameters, hexo.config.metadata || {});
+    const postParameters = { title: req.body.title, layout: 'draft', date: new Date(), author: hexo.config.author };
+    extend(postParameters, hexo.config.metadata || {});
     hexo.post.create(postParameters)
       .error((err) => {
         console.error(err, err.stack);

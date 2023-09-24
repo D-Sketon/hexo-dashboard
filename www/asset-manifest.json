@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.d537c91f.css",
-    "main.js": "/static/js/main.b32144d8.js",
-    "static/media/OpenSans-Bold.ttf": "/static/media/OpenSans-Bold.043771c999cd4d47d9f3.ttf",
-    "static/media/OpenSans-Light.ttf": "/static/media/OpenSans-Light.3d5923f94fc319b5652a.ttf",
-    "static/media/OpenSans-Regular.ttf": "/static/media/OpenSans-Regular.17e98b9e5586529b13cc.ttf",
-    "static/media/OpenSans-BoldItalic.ttf": "/static/media/OpenSans-BoldItalic.1c9d53ac65b20d03c4d0.ttf",
-    "static/media/OpenSans-LightItalic.ttf": "/static/media/OpenSans-LightItalic.4f712f17699ad7802828.ttf",
-    "static/media/OpenSans-Italic.ttf": "/static/media/OpenSans-Italic.9585580230392fee3fdc.ttf",
-    "static/media/Inconsolata-Regular.ttf": "/static/media/Inconsolata-Regular.bff71ce4409c05e76daa.ttf",
-    "static/media/Inconsolata-Bold.ttf": "/static/media/Inconsolata-Bold.466d1b00479094d172b8.ttf",
-    "index.html": "/index.html",
-    "main.d537c91f.css.map": "/static/css/main.d537c91f.css.map",
-    "main.b32144d8.js.map": "/static/js/main.b32144d8.js.map"
+    "main.css": "./static/css/main.07ce8dd8.css",
+    "main.js": "./static/js/main.5a083651.js",
+    "static/media/OpenSans-Bold.ttf": "./static/media/OpenSans-Bold.043771c999cd4d47d9f3.ttf",
+    "static/media/OpenSans-Light.ttf": "./static/media/OpenSans-Light.3d5923f94fc319b5652a.ttf",
+    "static/media/OpenSans-Regular.ttf": "./static/media/OpenSans-Regular.17e98b9e5586529b13cc.ttf",
+    "static/media/OpenSans-BoldItalic.ttf": "./static/media/OpenSans-BoldItalic.1c9d53ac65b20d03c4d0.ttf",
+    "static/media/OpenSans-LightItalic.ttf": "./static/media/OpenSans-LightItalic.4f712f17699ad7802828.ttf",
+    "static/media/OpenSans-Italic.ttf": "./static/media/OpenSans-Italic.9585580230392fee3fdc.ttf",
+    "static/media/Inconsolata-Regular.ttf": "./static/media/Inconsolata-Regular.bff71ce4409c05e76daa.ttf",
+    "static/media/Inconsolata-Bold.ttf": "./static/media/Inconsolata-Bold.466d1b00479094d172b8.ttf",
+    "index.html": "./index.html",
+    "main.07ce8dd8.css.map": "./static/css/main.07ce8dd8.css.map",
+    "main.5a083651.js.map": "./static/js/main.5a083651.js.map"
   },
   "entrypoints": [
-    "static/css/main.d537c91f.css",
-    "static/js/main.b32144d8.js"
+    "static/css/main.07ce8dd8.css",
+    "static/js/main.5a083651.js"
   ]
 }
