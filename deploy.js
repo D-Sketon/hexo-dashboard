@@ -3,10 +3,13 @@ import { spawn } from 'child_process';
 const once = (fn) => {
   let called = false;
   return (...args) => {
-    if (!called) fn.apply(this, args);
+    if (called) {
+      return;
+    }
     called = true;
+    fn(...args);
   };
-};
+}
 
 export default function executeCommand(command, message, done) {
   done = once(done);

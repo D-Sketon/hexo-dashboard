@@ -2,12 +2,14 @@
   "name": "hexo-dashboard",
   "version": "0.0.1",
   "type": "module",
-  "main": "index.js",
+  "main": "hexo-dashboard.min.js",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "connect-auth": "^0.6.1",
     "cookie-parser": "^1.4.6",
     "express-session": "^1.17.3",
+    "lodash": "^4.17.21",
     "serve-static": "^1.15.0"
   },
   "scripts": {

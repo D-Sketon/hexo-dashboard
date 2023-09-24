@@ -9,5 +9,5 @@ export default {
     file: 'hexo-dashboard.min.js',
     format: 'cjs',
   },
-  plugins: [nodeResolve(), commonjs(), json(), terser()]
+  plugins: [commonjs(), json()]
 };

@@ -1,7 +1,6 @@
 import path from 'path';
 import moment from 'moment';
-import { merge } from 'lodash-es';
-
+const merge = require('lodash/fp/merge');
 const hfm = require('hexo-front-matter');
 const fs = require('hexo-fs');
 

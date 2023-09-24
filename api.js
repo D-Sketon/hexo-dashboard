@@ -1,8 +1,8 @@
 import path from 'path';
 import yml from 'js-yaml';
-import { merge } from 'lodash-es';
 import updateAny from './update';
 import deploy from './deploy';
+const merge = require('lodash/fp/merge');
 
 const updatePage = updateAny.bind(null, 'Page');
 const update = updateAny.bind(null, 'Post');
