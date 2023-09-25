@@ -21,6 +21,10 @@ pnpm run build
 
 ## Roadmap
 - [x] Refactoring with react18
+- [ ] Use Material UI (WIP)
 - [ ] Upgrade to Hexo 6.0.0+
 - [ ] Fixing known problems in issues
-- [ ] Upgrade UI
+- [ ] Support editing front-matter
+- [ ] Support editing config
+- [ ] Support managing plugins/themes
+- [ ] More...
