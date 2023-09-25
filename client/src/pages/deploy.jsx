@@ -1,31 +1,38 @@
-import React, { useState } from 'react';
-import api from '../api';
+import React, { useState } from "react";
+import api from "../api";
+
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+
+import TextField from "@mui/material/TextField";
 
 function Deploy() {
   const [state, setState] = useState({
-    stdout: '',
-    stderr: '',
+    stdout: "",
+    stderr: "",
     error: null,
-    message: '',
-    status: 'initial',
+    message: "",
+    status: "initial",
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { message } = state;
     setState({
-      message: '',
+      message: "",
       error: null,
-      stdout: '',
-      stderr: '',
-      status: 'loading',
+      stdout: "",
+      stderr: "",
+      status: "loading",
     });
 
     try {
       const result = await api.deploy(message);
       setState((prevState) => ({
         ...prevState,
-        status: result.error ? 'error' : 'success',
+        status: result.error ? "error" : "success",
         error: result.error,
         stdout: result.stdout && result.stdout.trim(),
         stderr: result.stderr && result.stderr.trim(),
@@ -33,7 +40,7 @@ function Deploy() {
     } catch (error) {
       setState((prevState) => ({
         ...prevState,
-        status: 'error',
+        status: "error",
         error: error.message,
       }));
     }
@@ -42,34 +49,104 @@ function Deploy() {
   let body;
   if (state.error) {
     body = <h4>Error: {state.error}</h4>;
-  } else if (state.status === 'loading') {
+  } else if (state.status === "loading") {
     body = <h4>Loading...</h4>;
-  } else if (state.status === 'success') {
+  } else if (state.status === "success") {
     body = (
       <div>
-        <h4>Std Output</h4>
+        <Typography
+          component="h4"
+          variant="h4"
+          color="text.primary"
+          gutterBottom
+          sx={{
+            fontSize: "5rem",
+          }}
+        >
+          Std Out
+        </Typography>
         <pre>{state.stdout}</pre>
-        <h4>Std Error</h4>
+        <Typography
+          component="h4"
+          variant="h4"
+          color="text.primary"
+          gutterBottom
+          sx={{
+            fontSize: "5rem",
+          }}
+        >
+          Std Error
+        </Typography>
         <pre>{state.stderr}</pre>
       </div>
     );
   }
 
   return (
-    <div className="deploy" style={{ whiteSpace: 'nowrap' }}>
-      <p>Type a message here and hit `deploy` to run your deploy script.</p>
-      <form className="deploy_form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          className="deploy_message"
-          value={state.message}
-          placeholder="Deploy/commit message"
-          onChange={(e) => setState({ ...state, message: e.target.value })}
-        />
-        <input type="submit" value="Deploy" />
-      </form>
-      {body}
-    </div>
+    <>
+      <div
+        style={{
+          width: "100%",
+        }}
+      >
+        <Box
+          sx={{
+            pt: 8,
+            pb: 8,
+            width: "100%",
+          }}
+        >
+          <Container>
+            <Typography
+              component="h1"
+              variant="h2"
+              color="text.primary"
+              gutterBottom
+              sx={{
+                fontSize: "5rem",
+              }}
+            >
+              Deploy
+            </Typography>
+            <Typography
+              variant="h3"
+              color="text.secondary"
+              sx={{
+                fontSize: "2rem",
+              }}
+            >
+              Type a message here and hit <strong>deploy</strong> to run your
+              deploy script.
+            </Typography>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <TextField
+                margin="normal"
+                placeholder="Deploy/commit message"
+                variant="outlined"
+                value={state.message}
+                onChange={(e) =>
+                  setState({ ...state, message: e.target.value })
+                }
+                fullWidth
+                sx={{
+                  ".MuiOutlinedInput-input": { fontSize: "16px" },
+                  ".MuiFormLabel-root": { fontSize: "1.6rem" },
+                }}
+              />
+              <Button
+                variant="contained"
+                onClick={handleSubmit}
+                sx={{ fontSize: "2rem", ml: 4 }}
+              >
+                Deploy
+              </Button>
+            </div>
+            <hr />
+            {body}
+          </Container>
+        </Box>
+      </div>
+    </>
   );
 }
 
