@@ -86,7 +86,7 @@ function Settings() {
             Settings
           </Typography>
           <Typography
-            variant="h3"
+            variant="p"
             color="text.secondary"
             sx={{
               fontSize: "2rem",
@@ -101,7 +101,7 @@ function Settings() {
 
           <hr />
           <Typography
-            component="h1"
+            component="h2"
             variant="h2"
             color="text.primary"
             gutterBottom
@@ -115,7 +115,7 @@ function Settings() {
           {SpellCheck}
           <hr />
           <Typography
-            component="h1"
+            component="h2"
             variant="h2"
             color="text.primary"
             gutterBottom
@@ -126,7 +126,7 @@ function Settings() {
             Image Pasting Settings
           </Typography>
           <Typography
-            variant="h3"
+            variant="p"
             color="text.secondary"
             sx={{
               fontSize: "2rem",

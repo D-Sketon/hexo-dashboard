@@ -109,7 +109,7 @@ function Deploy() {
               Deploy
             </Typography>
             <Typography
-              variant="h3"
+              variant="p"
               color="text.secondary"
               sx={{
                 fontSize: "2rem",
